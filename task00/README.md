@@ -12,7 +12,7 @@ Follow the instruction below to build the attached C++ code. This code will disp
 
 === (paste the screenshot image here`![](image file name)` ) === 
 
-
+![](task00_finished.png)
 
 
 ----
