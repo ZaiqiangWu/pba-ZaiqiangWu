@@ -47,7 +47,7 @@ void WdWddW_Spring3(
   // write code to correctly compute hessian of a spring.
   // ddw[i_node][j_node] stands for derivative of dw[i_node] w.r.t the end-point's position node2xyz[j_node]
   // the current hessian computed by the code below is not very accurate, so the simulation is unstable.
-  const Eigen::Matrix3d n = stiffness * u01 * u01.transpose();
+  const Eigen::Matrix3d n = stiffness * u01 * u01.transpose()+stiffness*C/length*(Eigen::Matrix3d::Identity()-u01 * u01.transpose());
   ddw[0][0] = n;
   ddw[1][1] = n;
   ddw[0][1] = -n;
@@ -151,8 +151,8 @@ int main() {
   float current_time = 0.f;
 
   while (!::glfwWindowShouldClose(window)) {
-
-    if(current_time < 40.0) {
+    //To ensure that the elastic energy reaches convergence, I prolong the duration of the simulation.
+    if(current_time < 240.0) {
       float W = step_time_mass_spring_system_with_variational_integration(
           vtx2xyz, vtx2velocity, vtx2xyz_ini, line2vtx, 60.f, 1.f, {0., -0.1, 0}, vtx2isfree, dt,
           sparse_matrix);
