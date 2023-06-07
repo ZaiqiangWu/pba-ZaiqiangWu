@@ -41,8 +41,6 @@ Write a few lines of code around `line #52` to compute hessian accurately. After
 
 Write down the converged minimum value of the energy by updating the text below.
 
-Converged minimum elastic energy = -104.789
-
 ## After Doing the Assignment
 
 After modifying the code, push the code and submit a pull request.

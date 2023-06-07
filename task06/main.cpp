@@ -151,8 +151,8 @@ int main() {
   float current_time = 0.f;
 
   while (!::glfwWindowShouldClose(window)) {
-    //To ensure that the elastic energy reaches convergence, I prolong the duration of the simulation.
-    if(current_time < 240.0) {
+
+    if(current_time < 40.0) {
       float W = step_time_mass_spring_system_with_variational_integration(
           vtx2xyz, vtx2velocity, vtx2xyz_ini, line2vtx, 60.f, 1.f, {0., -0.1, 0}, vtx2isfree, dt,
           sparse_matrix);
